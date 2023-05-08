@@ -21,8 +21,11 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 # Gens de Desenvolvimento e teste
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 # Gens de Desenvolvimento
