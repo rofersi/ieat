@@ -4,7 +4,6 @@
       <tr>
         <th>Nome</th>
         <th>Enereço</th>
-        <th>Produto</th>
       </tr>
     </thead>
 
@@ -12,11 +11,26 @@
       <% Restaurant.all.each do |restaurant| %>
         <tr>
           <td><%= restaurant.name %></td>
-          <td><%= restaurant.address %></td>
-            <% restaurant.products.each do |product| %>
-              <td><%= product.name %></td>
-            <% end %>
+          <td><%= restaurant.address %></td>            
         </tr>     
-      <% end %>      
+          
     </tbody>
+
+    <thead>
+      <tr><th colspan="2">Produto</th></tr>
+    </thead>
+    <tbody>      
+        <% restaurant.products.each do |product| %>
+          <tr>
+            <%= form_tag('/orders') do %>
+                <%= hidden_field_tag :product_id, product.id %>
+                <td><%= product.name %></td>
+                <td><%= product.value %></td>
+                <td><%= submit_tag 'Pedir' %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>  
+    </tbody>
+
 </table> 

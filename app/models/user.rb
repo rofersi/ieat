@@ -6,7 +6,7 @@ class User < ApplicationRecord
   
   
   has_one :restaurant
+  has_many :orders
   enum role: %i[admin restaurant customer]
   # o %i indica que um array de symbol. Substitui essa notação: [:admin, :restaurant, :customer]
-
 end
